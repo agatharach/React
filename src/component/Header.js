@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "./../assets-final-project-fe/img/logo-ALTA.png";
+import logo from "../assets-final-project-fe/img/logo-ALTA.png";
+import Search from "./Search";
 
 function Header() {
     return (
@@ -13,7 +14,10 @@ function Header() {
                             </a>
                         </div>
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-3">
+                        <Search />
+                    </div>
+                    <div className="col-md-6">
                         <ul className="menu">
                             <li>
                                 <a href="home.html" id="home">

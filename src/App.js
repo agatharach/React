@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import Home from "./page/Home";
 import About from "./page/About";
 import Contact from "./page/Contact";
+import TopArticle from "./page/TopArticle";
 import "./assets-final-project-fe/CSS/less/style.css";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
         <div className="App">
             {/* <Home /> */}
             {/* <About /> */}
-            <Contact />
+            {/* <Contact /> */}
+            <TopArticle />
         </div>
     );
 }
