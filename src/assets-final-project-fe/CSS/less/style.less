@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+@white : #fff;
+@biru : #19345E;
+@oranges : #F47522;
+@muli : 'Muli', sans-serif;
+@roboto : 'Roboto', sans-serif;
+@abu : #707070;
+@boxbiru : rgb(34, 105, 163);
+
+
+/* header css */
+header {
+    background-color: @white;
+    position: fixed;
+    width: 100%;
+    height: 89px;
+    z-index: 10;
+}
+
+img.logo,#logo{
+        margin-top: 11px;
+        margin-left: 35px;
+}
+
+.menu {
+    padding-top: 30px;
+    text-align: right;
+    a{
+        font-family: @muli;
+        text-transform: uppercase;
+        font-size: 13px;
+        color: @biru;
+        &:hover{
+            color: @oranges;  
+        }
+    }
+    li{
+        display: inline;
+        margin-right: 35px;
+    }
+}
+
+#home, #about {
+    color: @oranges;
+}
+
+.padtop (@size){
+    padding-top: @size;
+}
+.padbot(@size){
+    padding-bottom: @size;
+}
+
+.wrapper-home {
+    .padtop(200px);
+    .padbot(89px);
+}
+
+.wrapper-about {
+    .padtop(89px);
+    .padbot(89px);
+}
+
+.about-me{
+    background-color: @white;
+    height: 132px;
+    text-transform: uppercase;
+}
+
+h1{
+    font-family: @roboto;
+    font-weight: 700;
+    font-size: 40px;
+    margin: 43px 90px 42px 115px;
+    color: @biru;
+
+}
+
+p{
+    font-family: @roboto;
+    font-size: 17px;
+    margin-top: 51px;
+    margin-left: 70px;
+    line-height: 22px;  
+    color: @biru;
+}
+
+table, td {
+    border: 1px solid @abu;
+    border-collapse: collapse;
+    font-family: @muli;
+    font-size: 14px;
+    color: @biru;
+    padding: 5px 20px;
+    margin-left: 70px;
+}
+
+.td2,.td3 {
+    padding: 5px,32px;
+}
+
+.image-about {
+    position: relative;
+}
+
+.about-me-img {
+    border-radius: 10px;
+    margin: 51px 100px;
+    width: 250px;
+}
+
+.dot {
+    position: absolute;
+    margin-top: -102px;
+    margin-left: 60px;
+    left: 0;
+}
+
+/* about css */
+
+body {
+    .home{
+        background-image: url(../../img/bg-img.png);
+        background-size: 100%;
+        background-position: fixed;
+    }
+}
+
+.name1{
+    font-family: @roboto;
+    font-weight: medium;
+    font-size: 25px;
+    color: @biru;
+
+}
+.name2{
+    font-family: @roboto;
+    font-size: 85px;
+    font-weight: bold;
+    text-align: left;
+    color : @biru;
+    border: 30;
+}
+
+.name3{
+    font-family: @roboto;
+    font-size: 35px;
+    font-weight: medium;
+    text-align: left;
+    color :@biru ;
+}
+.name4{
+    color: @white;
+    font-family: @roboto;
+    font-weight: 400;
+    font-size: 16px;
+    background-color: @oranges;
+    border-radius: 10px;
+    text-align: center;
+    padding:8px 15px 8px 15px;
+
+}
+.contain{
+    width : 80%;
+    margin: auto;
+}
+.home-image {
+    width: 355px;
+    border-radius: 360%;
+}
+
+/* footer css */
+footer{
+    background-color:@biru;
+    color : @white;
+    padding: 25px 0 5px 0;
+}
+.padleft (@size){
+    padding-left: @size;
+}
+.padright (@size){
+    padding-right: @size;
+}
+.facebook{
+    display: inline;
+}
+.Instagram{
+    display: inline;
+    padding: 0 10px;
+}
+.Twitter{
+    display: inline;
+    padding: 0 10px;
+}
+.LinkedIn{
+    display: inline;
+}
+.SocialMedia, h5{
+    font-size: 14px;
+    font-family: SF Compact Display;
+    font-weight: semibold;
+    text-align: left;
+}
+
+.sosmed {
+    text-align: center;
+}
+
+h5{
+    padding: 20px;
+    border-left: 1px solid @boxbiru;
+}
+
+.aligness {
+    float: left;
+}
+
+
+#left-image {
+    z-index: 100;
+    margin: auto;
+}
+
+span {
+    color: #ff0000;
+}
+
+.box-biru {
+    background-color: rgba(25, 52, 94, 0.65);
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: 792px;
+    opacity: 65%;
+}
+
+.nol{
+    padding-right: 0;
+    padding-left: 0;
+    background-image: url(../../img/charles-rRWiVQzLm7k-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 512px;
+    height: 792px;
+}
+
+.contact-us {
+    padding-top: 29px;
+    padding-left: 120px;
+    padding-right: 120px;
+    font-family: @muli;
+    font-size: 20px;
+    color: @biru;
+}
+
+.submit {
+    background-color: @oranges;
+    font-family: @roboto;
+    border-radius: 25px;
+    font-size: 16px;
+    color: @white;
+    width: 150px;
+    height: 43px;
+}
+
+.form-control {
+    border: 1px solid #707070;
+}
+
+.form-control {
+    &:focus{
+        box-shadow: none;
+        border: 2px solid #19345E;  
+    }
+}
+
+@media (max-width: 1210px) {
+    .name2{
+        font-size: 65px;
+    }
+    .home-image {
+        width: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    #logo {
+        margin-left: 135px ;
+    }
+    .menu {
+        text-align: center;
+        padding-left: 10px;
+        li{
+            margin: 10px
+        }
+    }
+
+    .contain{
+        width : 100%;
+    }
+    h1 {
+        font-size: 30px;
+        margin: 25px 100px 42px 100px;
+    }
+
+    .about-me {
+        height: 90px;
+    }
+
+    .about-me-img {
+        width: 200px;
+    }
+
+    p {
+        margin-left: 35px;
+        margin-right: 40px;
+    }
+    table, td {
+        padding: 5px 5px;
+        margin-left: 35px;
+        margin-right: 20px;
+      }
+    
+    .td2, .td3{
+        padding: 5px 5px;
+    }
+    
+    .aligness {
+        float: center;
+        text-align: center;
+    }
+    .SocialMedia, h5{
+        text-align: center;
+    }
+
+    .facebook{
+        .padleft(40px);
+    }
+    .Instagram{
+        .padleft(10px);
+    }
+    .Twitter{
+        .padleft(10px);
+    }
+    .LinkedIn{
+        .padleft(10px);
+    }
+
+    footer{
+        padding: 20px 0 15px 0;
+    }
+
+    .contact-us {
+        .padleft(20px);
+        .padright(20px);
+    }
+
+    h5{
+        border-left: 0 solid @white;
+    }
+    .submit {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        height: 140px;
+    }
+    
+    #logo {
+        margin-left: 175px ;
+    }
+    .wrapper-about {
+        .padtop(150px);
+        .padbot(89px);
+    }
+    .nol {
+        height: 200px;
+    }
+    .box-biru {
+        height: 200px;
+    }
+    .dot {
+        margin-top: 202px;
+        left: 0;
+    }
+    .facebook{
+        padding-left: 190px;
+    }
+    .name2,.name3,.name4,.contain{
+        text-align: center;
+    }
+    .name2{
+        font-size: 65px;
+    }
+    .home-image {
+        width: 300px;
+    }
+}
+
+@media (max-width: 570px){
+    .facebook{
+        .padleft(160px);
+    }
+}
+
+@media (max-width: 394px){
+ .facebook{
+    .padleft(160px);
+    }
+}
+
+@media (max-width: 388px) {
+    h1 {
+        font-size: 30px;
+        margin: 25px 70px 42px 70px;
+    }
+    .home-image {
+        border-radius: 360%;
+    }
+}
