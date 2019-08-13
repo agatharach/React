@@ -1,13 +1,6 @@
 import React from "react";
 
-function ListArticle() {
-    const judul = [
-        "Gabung Alpha Tech Academy Sekarang!",
-        "Ada apa antara Kobar dan Hasan?",
-        "Mengenai Arafat Sang Master Python",
-        "Belajar reactJS itu seru. Kamu setuju?",
-        "Sudahkah kamu sehat mental?"
-    ];
+function ListArticle(props) {
     return (
         <div class="container sidebar">
             <div class="row border p-2">
@@ -20,7 +13,7 @@ function ListArticle() {
                     <a href="/#">lihat semua</a>{" "}
                 </div>
             </div>
-            {judul.map(function(judl, index) {
+            {props.news.map(function(judl, index) {
                 return (
                     <div class="row border p-2">
                         <div class="col-12 text-left">
@@ -28,7 +21,7 @@ function ListArticle() {
                                 #{index}
                             </span>
                         </div>
-                        <div class="col-12 text-left py-1">{judl}</div>
+                        <div class="col-12 text-left py-1">{judl.title}</div>
                     </div>
                 );
             })}

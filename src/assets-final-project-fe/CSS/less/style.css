@@ -248,6 +248,9 @@ li button {
 .top {
   padding-top: 120px;
 }
+.publish {
+  margin-left: 100px;
+}
 @media (max-width: 1210px) {
   .name2 {
     font-size: 65px;
