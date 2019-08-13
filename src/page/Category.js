@@ -8,42 +8,51 @@ import axios from "axios";
 const apiKey = "764b00476a6d47d5a3c7c6e035efc6c0";
 const baseURL = "https://newsapi.org/v2/";
 const urlheadline = baseURL + "top-headlines?country=us&apiKey=" + apiKey;
-const urltopline = baseURL + "everything?q=bitcoin&apiKey=" + apiKey;
-class TopArticle extends React.Component {
+class Category extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             listNews: [],
             listTop: [],
-            value: ""
+            value: "",
+            val: ""
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount = () => {
-        const self = this;
-        axios
-            .get(urlheadline)
-            .then(function(response) {
-                self.setState({ listNews: response.data.articles });
-                console.log(response);
-            })
+        this.setState({ val: this.props.match.params.id }, () => {
+            const self = this;
+            axios
+                .get(urlheadline)
+                .then(function(response) {
+                    self.setState({ listNews: response.data.articles });
+                    console.log(response);
+                })
 
-            .catch(function(error) {
-                console.log(error);
-            });
+                .catch(function(error) {
+                    console.log(error);
+                });
 
-        axios
-            .get(urltopline)
-            .then(function(response) {
-                self.setState({ listTop: response.data.articles });
-                console.log(response);
-            })
+            axios
+                .get(
+                    baseURL +
+                        "everything?" +
+                        "q=" +
+                        self.state.val +
+                        "&apiKey=" +
+                        apiKey
+                )
+                .then(function(response) {
+                    self.setState({ listTop: response.data.articles });
+                    console.log(response);
+                })
 
-            .catch(function(error) {
-                console.log(error);
-            });
+                .catch(function(error) {
+                    console.log(error);
+                });
+        });
     };
 
     handleChange(event) {
@@ -90,4 +99,4 @@ class TopArticle extends React.Component {
         );
     }
 }
-export default TopArticle;
+export default Category;

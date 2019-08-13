@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets-final-project-fe/img/logo-ALTA.png";
-import Search from "./Search";
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
@@ -14,24 +14,19 @@ function Header() {
                             </a>
                         </div>
                     </div>
-                    <div className="col-md-3">
-                        <Search />
-                    </div>
-                    <div className="col-md-6">
+                    <div className="col-md-9">
                         <ul className="menu">
                             <li>
-                                <a href="home.html" id="home">
-                                    home
-                                </a>
+                                <a id="home">home</a>
                             </li>
                             <li>
-                                <a href="about.html">about</a>
+                                <a>about</a>
                             </li>
                             <li>
                                 <a>experience</a>
                             </li>
                             <li>
-                                <a href="contact.html">contact</a>
+                                <a>contact</a>
                             </li>
                         </ul>
                     </div>

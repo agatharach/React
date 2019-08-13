@@ -1,8 +1,12 @@
 import React from "react";
 import logo from "../assets-final-project-fe/img/logo-ALTA.png";
-import Search from "./Search";
+import Logosearch from "../assets-final-project-fe/img/kaca-pembesar.jpg";
+import { Link } from "react-router-dom";
 
-function Headernews() {
+function Headernews(props) {
+    localStorage.setItem("username", "");
+    localStorage.setItem("password", "");
+    localStorage.setItem("status", "");
     return (
         <header>
             <div className="container">
@@ -18,25 +22,39 @@ function Headernews() {
                             <div className="col-md-8">
                                 <ul className="menunews">
                                     <li>
-                                        <a>Sepakbola</a>
+                                        <Link to="/">Home</Link>
                                     </li>
                                     <li>
-                                        <a>Ekonomi</a>
+                                        <Link to="/profile">Profile</Link>
                                     </li>
                                     <li>
-                                        <a>Politik</a>
+                                        <Link to="/category/bussines">
+                                            Bussines
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a>Hiburan</a>
+                                        <Link to="/category/health">
+                                            Health
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/category/science">
+                                            Science
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/category/sports">
+                                            Sports
+                                        </Link>
                                     </li>
                                     <li>
                                         <button
-                                            class="btn btn-default dropdown-toggle"
+                                            className="btn btn-default dropdown-toggle"
                                             type="button"
                                             data-toggle="dropdown"
                                         >
                                             <a>lainnya</a>
-                                            <span class="caret" />
+                                            <span className="caret" />
                                         </button>
                                     </li>
                                 </ul>
@@ -46,12 +64,32 @@ function Headernews() {
                     <div className="col-md-5">
                         <div className="row">
                             <div className="col-md-8 justify-align-center, search">
-                                <Search />
+                                <div className="topnav">
+                                    <div className="search-container">
+                                        <form action="/action_page.php">
+                                            <input
+                                                type="text"
+                                                placeholder="Search"
+                                                name="search"
+                                                onChange={props.doSearch}
+                                            />
+                                            <img
+                                                src={Logosearch}
+                                                alt="kacapembesar"
+                                                width="20px"
+                                            />
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                             <div className="col-md-4">
                                 <ul className="menu">
-                                    <li>Masuk</li>
-                                    <li>Daftar</li>
+                                    <li>
+                                        <Link to="/signin">SignIn</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/signout">SignOut</Link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
