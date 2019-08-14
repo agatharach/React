@@ -18,7 +18,7 @@ function ListArticle(props) {
                     <div className="row border p-2">
                         <div className="col-12 text-left">
                             <span className="bg-danger py-1 px-2 rounded">
-                                #{index}
+                                #{index + 1}
                             </span>
                         </div>
                         <div className="col-12 text-left py-1">

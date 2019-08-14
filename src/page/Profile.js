@@ -1,11 +1,13 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import Headernews from "../component/Header2";
+import { connect } from "unistore/react";
+import { actions } from "../store";
 
 function Profile(props) {
-    const is_login = localStorage.getItem("status");
-    const username = localStorage.getItem("username");
-    console.log(is_login);
+    const is_login = props.status;
+    const username = props.username;
+    // console.log(is_login);
     if (is_login) {
         return (
             <div>
@@ -20,4 +22,7 @@ function Profile(props) {
     }
 }
 
-export default Profile;
+export default connect(
+    "username,status",
+    actions
+)(Profile);

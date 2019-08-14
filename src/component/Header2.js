@@ -2,13 +2,15 @@ import React from "react";
 import logo from "../assets-final-project-fe/img/logo-ALTA.png";
 import Logosearch from "../assets-final-project-fe/img/kaca-pembesar.jpg";
 import { Link } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions } from "../store";
 
 function Headernews(props) {
-    const clickSignOut = () => {
-        localStorage.setItem("username", "");
-        localStorage.setItem("password", "");
-        localStorage.setItem("status", "");
-    };
+    // const clickSignOut = () => {
+    //     localStorage.setItem("username", "");
+    //     localStorage.setItem("password", "");
+    //     localStorage.setItem("status", "");
+    // };
     return (
         <header>
             <div className="container">
@@ -92,7 +94,7 @@ function Headernews(props) {
                                     <li>
                                         <Link
                                             to="/signout"
-                                            onClick={clickSignOut}
+                                            onClick={() => props.logout()}
                                         >
                                             SignOut
                                         </Link>
@@ -106,4 +108,7 @@ function Headernews(props) {
         </header>
     );
 }
-export default Headernews;
+export default connect(
+    "",
+    actions
+)(Headernews);

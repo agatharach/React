@@ -3,6 +3,8 @@ import ListArticle from "../component/ListArticle";
 import Headernews from "../component/Header2";
 import Headline from "../component/Headline";
 import axios from "axios";
+import { connect } from "unistore/react";
+import { actions } from "../store";
 
 // news API
 const apiKey = "764b00476a6d47d5a3c7c6e035efc6c0";
@@ -13,11 +15,9 @@ class TopArticle extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            listNews: [],
-            listTop: [],
             value: ""
         };
-        this.componentDidMount = this.componentDidMount.bind(this);
+
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -26,7 +26,7 @@ class TopArticle extends React.Component {
         axios
             .get(urlheadline)
             .then(function(response) {
-                self.setState({ listNews: response.data.articles });
+                self.props.setlistNews(response.data.articles);
                 console.log(response);
             })
 
@@ -37,7 +37,7 @@ class TopArticle extends React.Component {
         axios
             .get(urltopline)
             .then(function(response) {
-                self.setState({ listTop: response.data.articles });
+                self.props.setlistTop(response.data.articles);
                 console.log(response);
             })
 
@@ -60,7 +60,7 @@ class TopArticle extends React.Component {
                             apiKey
                     )
                     .then(function(response) {
-                        self.setState({ listTop: response.data.articles });
+                        self.props.setlistTop(response.data.articles);
                         console.log(response);
                     })
                     .catch(function(error) {
@@ -78,11 +78,11 @@ class TopArticle extends React.Component {
                     <div className="row">
                         <div className="col-4">
                             <ListArticle
-                                news={this.state.listNews.slice(0, 5)}
+                                news={this.props.listNews.slice(0, 5)}
                             />
                         </div>
                         <div className="col-8 text-center">
-                            <Headline top={this.state.listTop.slice(0, 5)} />
+                            <Headline top={this.props.listTop.slice(0, 5)} />
                         </div>
                     </div>
                 </div>
@@ -90,4 +90,7 @@ class TopArticle extends React.Component {
         );
     }
 }
-export default TopArticle;
+export default connect(
+    "listNews,listTop",
+    actions
+)(TopArticle);

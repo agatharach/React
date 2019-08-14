@@ -1,23 +1,25 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Headernews from "../component/Header2";
+import { connect } from "unistore/react";
+import { actions } from "../store";
 
 class SignIn extends Component {
-    state = { username: "", password: "" };
-    changeInput = e => {
-        this.setState({ [e.target.name]: e.target.value });
-    };
     postLogin = () => {
-        const { username, password, status } = this.state;
         const self = this;
         axios
             .post("https://reactagatha.free.beeceptor.com/login")
 
             .then(function(response) {
                 console.log(response.data);
-                localStorage.setItem("username", response.data.username);
-                localStorage.setItem("password", response.data.password);
-                localStorage.setItem("status", response.data.status);
+                // localStorage.setItem("username", response.data.username);
+                // localStorage.setItem("password", response.data.password);
+                // localStorage.setItem("status", response.data.status);
+                self.props.setuserName(response.data.username);
+                self.props.setpassWord(response.data.password);
+                self.props.login();
+                // console.log(self.props.status);
+                console.log(self.props);
                 self.props.history.push("/profile");
             })
 
@@ -26,7 +28,6 @@ class SignIn extends Component {
             });
     };
     render() {
-        console.log("state", this.state);
         return (
             <div>
                 <Headernews />;
@@ -39,7 +40,6 @@ class SignIn extends Component {
                                     type="text"
                                     name="username"
                                     placeholder="Username"
-                                    onChange={e => this.changeInput(e)}
                                 />
                             </div>
                             <div>
@@ -47,7 +47,6 @@ class SignIn extends Component {
                                     type="password"
                                     name="password"
                                     placeholder="Password"
-                                    onChange={e => this.changeInput(e)}
                                 />
                             </div>
                             <button onClick={() => this.postLogin()}>
@@ -60,4 +59,7 @@ class SignIn extends Component {
         );
     }
 }
-export default SignIn;
+export default connect(
+    "username,password,status",
+    actions
+)(SignIn);
