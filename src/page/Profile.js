@@ -5,12 +5,13 @@ import Headernews from "../component/Header2";
 function Profile(props) {
     const is_login = localStorage.getItem("status");
     const username = localStorage.getItem("username");
+    console.log(is_login);
     if (is_login) {
         return (
             <div>
                 <Headernews />
-                <div>
-                    <h1>{username}</h1>
+                <div className="output">
+                    <h1>{username} berhasil login</h1>
                 </div>
             </div>
         );

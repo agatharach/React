@@ -4,9 +4,11 @@ import Logosearch from "../assets-final-project-fe/img/kaca-pembesar.jpg";
 import { Link } from "react-router-dom";
 
 function Headernews(props) {
-    localStorage.setItem("username", "");
-    localStorage.setItem("password", "");
-    localStorage.setItem("status", "");
+    const clickSignOut = () => {
+        localStorage.setItem("username", "");
+        localStorage.setItem("password", "");
+        localStorage.setItem("status", "");
+    };
     return (
         <header>
             <div className="container">
@@ -88,7 +90,12 @@ function Headernews(props) {
                                         <Link to="/signin">SignIn</Link>
                                     </li>
                                     <li>
-                                        <Link to="/signout">SignOut</Link>
+                                        <Link
+                                            to="/signout"
+                                            onClick={clickSignOut}
+                                        >
+                                            SignOut
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

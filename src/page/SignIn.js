@@ -9,14 +9,9 @@ class SignIn extends Component {
     };
     postLogin = () => {
         const { username, password, status } = this.state;
-        const data = {
-            username: username,
-            password: password,
-            status: status
-        };
         const self = this;
         axios
-            .post("https://reactagatha.free.beeceptor.com/login", data)
+            .post("https://reactagatha.free.beeceptor.com/login")
 
             .then(function(response) {
                 console.log(response.data);

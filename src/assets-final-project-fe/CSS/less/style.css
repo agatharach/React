@@ -246,7 +246,8 @@ li button {
 }
 .sidebar,
 .top,
-.login {
+.login,
+.output {
   padding-top: 120px;
 }
 .publish {

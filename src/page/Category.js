@@ -17,7 +17,7 @@ class Category extends React.Component {
             value: "",
             val: ""
         };
-        this.componentDidMount = this.componentDidMount.bind(this);
+
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -53,6 +53,27 @@ class Category extends React.Component {
                     console.log(error);
                 });
         });
+    };
+
+    componentDidUpdate = prevProps => {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            axios
+                .get(
+                    baseURL +
+                        "everything?" +
+                        "q=" +
+                        this.props.match.params.id +
+                        "&apiKey=" +
+                        apiKey
+                )
+                .then(response => {
+                    this.setState({ listTop: response.data.articles });
+                    console.log(response);
+                })
+                .catch(error => {
+                    console.log("terdapat eror ini :", error);
+                });
+        }
     };
 
     handleChange(event) {
